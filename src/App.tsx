@@ -32,7 +32,7 @@ const App: React.FC = () => {
   }, []);
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
-
+  
   return (
     <div className={`${darkMode ? 'bg-black text-green-500' : 'bg-white text-black'} min-h-screen font-mono transition-all duration-500`}>
       {/* Dark Mode Toggle */}
@@ -40,6 +40,7 @@ const App: React.FC = () => {
         <button onClick={toggleDarkMode} className="p-2 border rounded hover:scale-105 transition">
           {darkMode ? <SunIcon /> : <MoonIcon />}
         </button>
+        
       </div>
 
       {/* Matrix Rain Background */}
@@ -48,16 +49,54 @@ const App: React.FC = () => {
       <div className="container mx-auto px-4 py-16 relative z-10">
         {/* Header */}
         <header className="text-center mb-16">
-          <h1 className="text-6xl font-bold mb-4 relative">
-            <span className="absolute inset-0 text-red-500 animate-glitch-1">{name}</span>
-            <span className="absolute inset-0 text-blue-500 animate-glitch-2">{name}</span>
-            {name}
-          </h1>
-          <h2 className="text-2xl tracking-widest">
-            {title} {glitchText}
-          </h2>
-        </header>
+  <h1 className="text-6xl font-bold mb-4 relative">
+    <span className="absolute inset-0 text-red-500 animate-glitch-1">{name}</span>
+    <span className="absolute inset-0 text-blue-500 animate-glitch-2">{name}</span>
+    {name}
+  </h1>
+  <h2 className="text-2xl tracking-widest">
+    {title} {glitchText}
+  </h2>
 
+  {/* Resume Button Centered */}
+  <div className="flex justify-center items-center mt-6">
+    <div className="relative">
+      {/* Hover target only on button */}
+      <div className="resume-hover relative">
+        <button className="p-3 border-2 border-green-500 rounded-full flex items-center justify-center hover:bg-green-500 hover:text-white hover:scale-110 transition-transform duration-500 ease-in-out">
+          <BriefcaseIcon className="text-xl mr-2" />
+          <span>Resume</span>
+        </button>
+
+        {/* Resume preview shown ONLY when hovering over .resume-hover */}
+        <div className="invisible opacity-0 resume-preview absolute top-full left-1/2 transform -translate-x-1/2 mt-2 transition-opacity duration-300 bg-black text-green-500 rounded-lg shadow-lg w-[90vw] max-w-2xl pointer-events-none">
+          <div className="backdrop-blur-md bg-black/90 p-4 rounded-2xl border border-green-400">
+            <div className="w-full h-[400px]">
+              <iframe
+                src="https://drive.google.com/file/d/1yJ3Kl6Ba5Z83Q7sKacLhhR006Rud5oJr/preview"
+                width="100%"
+                height="100%"
+                allow="autoplay"
+                className="rounded-md"
+              ></iframe>
+            </div>
+            <a
+              href="https://drive.google.com/file/d/1yJ3Kl6Ba5Z83Q7sKacLhhR006Rud5oJr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 text-green-300 underline hover:text-green-400 text-lg"
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<br></br>
         {/* Main Content */}
         <main className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* About */}
@@ -91,7 +130,7 @@ const App: React.FC = () => {
 
           {/* Projects */}
 {/* Projects */}
-<section className={`p-6 border ${darkMode ? 'bg-black/50 border-green-500' : 'bg-gray-100 border-gray-400'} md:col-span-2`}>
+<section className={`p-6 border overflow-visible ${darkMode ? 'bg-black/50 border-green-500' : 'bg-gray-100 border-gray-400'} md:col-span-2`}>
   <h3 className="text-xl font-bold mb-4 flex items-center">
     <FolderIcon className="mr-2" />
     PROJECTS::SHOWCASE
@@ -128,27 +167,33 @@ const App: React.FC = () => {
       },
     ].map((project, index) => (
       <div
-        key={index}
-        className="relative border border-green-500/50 p-4 group hover:bg-black hover:text-green-400 transition-all"
-      >
-        <h4 className="font-bold text-lg">{project.title}</h4>
-        <p className="text-sm text-green-400 mb-2">{project.stack}</p>
-        <p className="mb-2">{project.desc}</p>
+  key={index}
+  className="relative border border-green-500/50 p-4 group hover:bg-black hover:text-green-400 transition-all z-0"
+>
 
-        {/* Hidden content on hover */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black/90 text-white opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4 text-center z-10">
-          <img src={project.img} alt={project.title} className="w-full h-32 object-cover mb-4 border border-green-400" />
-          <p className="mb-4 text-sm">{project.desc}</p>
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-green-300 underline hover:text-green-500"
-          >
-            View on GitHub
-          </a>
-        </div>
-      </div>
+  <h4 className="font-bold text-lg">{project.title}</h4>
+  <p className="text-sm text-green-400 mb-2">{project.stack}</p>
+  <p className="mb-2">{project.desc}</p>
+
+  {/* Overlay content that appears on hover and allows interaction */}
+  <div className="absolute top-0 left-0 w-full h-full bg-black/90 text-white opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4 text-center z-50 pointer-events-auto">
+    <img
+      src={project.img}
+      alt={project.title}
+      className="w-full h-32 object-cover mb-4 border border-green-400"
+    />
+    <p className="mb-4 text-sm">{project.desc}</p>
+    <a
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-green-300 underline hover:text-green-500"
+    >
+      View on GitHub
+    </a>
+  </div>
+</div>
+
     ))}
   </div>
 </section>
