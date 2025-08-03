@@ -206,29 +206,56 @@ const App: React.FC = () => {
               EXPERIENCE::LOG
             </h3>
             <div className="space-y-6">
-              <div>
-                <h4 className="font-bold">Freelance AI Developer</h4>
-                <p className="text-sm text-green-400">2023 - Present</p>
-                <ul className="mt-2 list-disc list-inside">
-                  <li>Built real-world AI SaaS tools using Gemini & OpenCV</li>
-                  <li>Created job screening, CV analyzers, and voice-to-notation apps</li>
-                  <li>34 satisfied clients from 8 nations including Quatar,Israel and Monaco</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold">Rapi Pay Intern</h4>
-                <p className="text-sm text-green-400">2024 may-july</p>
-                <ul className="mt-2 list-disc list-inside">
-                  <li>Implemented real-time data communication using WebSockets and collaborated on enhancing the overall UI.</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className='font-bold'>SOUL AI freelancer</h4>
-                <ul className="mt-2 list-disc list-inside">
-                  <li>Working on FineTuning tamil and Bengali LLMS</li>
-                </ul>
-              </div>
-            </div>
+  <div>
+    <h4 className="font-bold">Founding Engineer – Tellia (Pre-Seed Funded)</h4>
+    <p className="text-sm text-green-400">San Francisco, 2025 - Present</p>
+    <ul className="mt-2 list-disc list-inside">
+      <li>Building the voice-first OS for the field to turn calls, voice notes, and texts into structured data</li>
+      <li>Using LLMs to extract multilingual agricultural insights from unstructured, noisy inputs</li>
+      <li>Designed real-time alerting and dashboard systems to help farmers and advisors make decisions faster</li>
+      <li>Solving the last-mile tech gap in agriculture by eliminating the need for apps or typing in the field</li>
+      <li>Collaborated with agronomists to convert field operations into voice-driven workflows</li>
+    </ul>
+  </div>
+
+  <div>
+    <h4 className="font-bold">FLR Spectron – Computer Vision Intern</h4>
+    <p className="text-sm text-green-400">Remote (UK), 2024</p>
+    <ul className="mt-2 list-disc list-inside">
+      <li>Built an automated virtual staging platform for real estate imaging (SpiceHart)</li>
+      <li>Reduced training time by 20 hours using LoRA with multi-checkpoint optimization</li>
+      <li>Refined deep learning models for precise object segmentation and style transfer</li>
+    </ul>
+  </div>
+
+  <div>
+    <h4 className="font-bold">Freelance AI Developer</h4>
+    <p className="text-sm text-green-400">2023 - Present</p>
+    <ul className="mt-2 list-disc list-inside">
+      <li>Built real-world AI SaaS tools using Gemini & OpenCV</li>
+      <li>Created job screening, CV analyzers, and voice-to-notation apps</li>
+      <li>34 satisfied clients from 8 nations including Qatar, Israel, and Monaco</li>
+    </ul>
+  </div>
+
+  <div>
+    <h4 className="font-bold">Rapi Pay Intern</h4>
+    <p className="text-sm text-green-400">May 2024 - July 2024</p>
+    <ul className="mt-2 list-disc list-inside">
+      <li>Implemented real-time data communication using WebSockets</li>
+      <li>Collaborated on UI enhancements across key components</li>
+    </ul>
+  </div>
+
+  <div>
+    <h4 className='font-bold'>SOUL AI Freelancer</h4>
+    <ul className="mt-2 list-disc list-inside">
+      <li>Working on fine-tuning Tamil and Bengali LLMs</li>
+    </ul>
+  </div>
+</div>
+
+
           </section>
 
           {/* Hackathons */}
